@@ -16,24 +16,30 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(self.stacked_widget)
 
         self.main_menu = MainMenu()
-        self.menu_controller = MenuController()
+        self.menu_eeg = MenuController()
+        self.menu_ecg = MenuController()
         self.suhu_tubuh = BodyTemp()
         self.riwayat = MenuRiwayat()
 
         self.stacked_widget.addWidget(self.main_menu)
-        self.stacked_widget.addWidget(self.menu_controller)
+        self.stacked_widget.addWidget(self.menu_eeg)
+        self.stacked_widget.addWidget(self.menu_ecg)
         self.stacked_widget.addWidget(self.suhu_tubuh)        
         self.stacked_widget.addWidget(self.riwayat)
         
         self.main_menu.buttonClicked.connect(self.handleMenuSelection)
-        self.menu_controller.buttonClicked.connect(self.handleMenuSelection)
+        self.menu_eeg.buttonClicked.connect(self.handleMenuSelection)
+        self.menu_ecg.buttonClicked.connect(self.handleMenuSelection)
         self.suhu_tubuh.buttonClicked.connect(self.handleMenuSelection)
         self.riwayat.buttonClicked.connect(self.handleMenuSelection)
 
     def handleMenuSelection(self, menu_type):
-        if menu_type == "ECG" or menu_type == "EEG":
-            self.stacked_widget.setCurrentWidget(self.menu_controller)
-            self.menu_controller.setMenuType(menu_type)        
+        if menu_type == "EEG":
+            self.stacked_widget.setCurrentWidget(self.menu_eeg)
+            self.menu_eeg.setMenuType(menu_type)  
+        elif menu_type == "ECG":
+            self.stacked_widget.setCurrentWidget(self.menu_ecg)
+            self.menu_ecg.setMenuType(menu_type)      
         elif menu_type == "Suhu Tubuh":            
             self.stacked_widget.setCurrentWidget(self.suhu_tubuh)
         elif menu_type == "Riwayat":            
@@ -41,7 +47,7 @@ class MainWindow(QMainWindow):
         elif menu_type == "Kembali Home":
             self.stacked_widget.setCurrentWidget(self.main_menu)
         else:
-            print(f"Pesan dari MainWindow Tombol {menu_type} diklik.")
+            print(f"Pesan dari MainWindow: \nTombol {menu_type} diklik.")
 
 def main():
     app = QApplication(sys.argv)

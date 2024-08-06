@@ -265,6 +265,62 @@
         "documentation": {}
     },
     {
+        "label": "QWidget",
+        "importPath": "PyQt5.QtWidgets",
+        "description": "PyQt5.QtWidgets",
+        "isExtraImport": true,
+        "detail": "PyQt5.QtWidgets",
+        "documentation": {}
+    },
+    {
+        "label": "QVBoxLayout",
+        "importPath": "PyQt5.QtWidgets",
+        "description": "PyQt5.QtWidgets",
+        "isExtraImport": true,
+        "detail": "PyQt5.QtWidgets",
+        "documentation": {}
+    },
+    {
+        "label": "QHBoxLayout",
+        "importPath": "PyQt5.QtWidgets",
+        "description": "PyQt5.QtWidgets",
+        "isExtraImport": true,
+        "detail": "PyQt5.QtWidgets",
+        "documentation": {}
+    },
+    {
+        "label": "QPushButton",
+        "importPath": "PyQt5.QtWidgets",
+        "description": "PyQt5.QtWidgets",
+        "isExtraImport": true,
+        "detail": "PyQt5.QtWidgets",
+        "documentation": {}
+    },
+    {
+        "label": "QLabel",
+        "importPath": "PyQt5.QtWidgets",
+        "description": "PyQt5.QtWidgets",
+        "isExtraImport": true,
+        "detail": "PyQt5.QtWidgets",
+        "documentation": {}
+    },
+    {
+        "label": "QSizePolicy",
+        "importPath": "PyQt5.QtWidgets",
+        "description": "PyQt5.QtWidgets",
+        "isExtraImport": true,
+        "detail": "PyQt5.QtWidgets",
+        "documentation": {}
+    },
+    {
+        "label": "QSpacerItem",
+        "importPath": "PyQt5.QtWidgets",
+        "description": "PyQt5.QtWidgets",
+        "isExtraImport": true,
+        "detail": "PyQt5.QtWidgets",
+        "documentation": {}
+    },
+    {
         "label": "QApplication",
         "importPath": "PyQt5.QtWidgets",
         "description": "PyQt5.QtWidgets",
@@ -302,6 +358,22 @@
         "description": "PyQt5.QtWidgets",
         "isExtraImport": true,
         "detail": "PyQt5.QtWidgets",
+        "documentation": {}
+    },
+    {
+        "label": "QIcon",
+        "importPath": "PyQt5.QtGui",
+        "description": "PyQt5.QtGui",
+        "isExtraImport": true,
+        "detail": "PyQt5.QtGui",
+        "documentation": {}
+    },
+    {
+        "label": "QFont",
+        "importPath": "PyQt5.QtGui",
+        "description": "PyQt5.QtGui",
+        "isExtraImport": true,
+        "detail": "PyQt5.QtGui",
         "documentation": {}
     },
     {
@@ -529,6 +601,30 @@
         "documentation": {}
     },
     {
+        "label": "QSize",
+        "importPath": "PyQt5.QtCore",
+        "description": "PyQt5.QtCore",
+        "isExtraImport": true,
+        "detail": "PyQt5.QtCore",
+        "documentation": {}
+    },
+    {
+        "label": "pyqtSignal",
+        "importPath": "PyQt5.QtCore",
+        "description": "PyQt5.QtCore",
+        "isExtraImport": true,
+        "detail": "PyQt5.QtCore",
+        "documentation": {}
+    },
+    {
+        "label": "Qt",
+        "importPath": "PyQt5.QtCore",
+        "description": "PyQt5.QtCore",
+        "isExtraImport": true,
+        "detail": "PyQt5.QtCore",
+        "documentation": {}
+    },
+    {
         "label": "MainMenu",
         "importPath": "MainMenu",
         "description": "MainMenu",
@@ -583,7 +679,7 @@
         "kind": 6,
         "importPath": "MainWindow",
         "description": "MainWindow",
-        "peekOfCode": "class MainWindow(QMainWindow):\n    def __init__(self):\n        super().__init__()\n        self.setWindowTitle('Main Window')\n        self.setGeometry(100, 100, 1024, 600)\n        self.setStyleSheet(\"background-color: #010020;\")\n        self.stacked_widget = QStackedWidget(self)\n        self.setCentralWidget(self.stacked_widget)\n        self.main_menu = MainMenu()\n        self.menu_controller = MenuController()",
+        "peekOfCode": "class MainWindow(QMainWindow):\n    def __init__(self):\n        super().__init__()\n        self.setWindowTitle('Main Window')\n        self.setGeometry(100, 100, 1024, 600)\n        self.setStyleSheet(\"background-color: #010020;\")\n        self.stacked_widget = QStackedWidget(self)\n        self.setCentralWidget(self.stacked_widget)\n        self.main_menu = MainMenu()\n        self.menu_eeg = MenuController()",
         "detail": "MainWindow",
         "documentation": {}
     },
@@ -612,6 +708,15 @@
         "description": "MenuRiwayat",
         "peekOfCode": "class MenuRiwayat(QWidget):\n    buttonClicked = pyqtSignal(str)\n    def __init__(self):\n        super().__init__()\n        self.initUI()\n    def initUI(self):\n        main_layout = QVBoxLayout()\n        main_layout.setContentsMargins(50, 50, 50, 50)\n        main_layout.setSpacing(20)\n        main_layout.setAlignment(Qt.AlignCenter)",
         "detail": "MenuRiwayat",
+        "documentation": {}
+    },
+    {
+        "label": "MonitorPlotter",
+        "kind": 6,
+        "importPath": "MonitorPlotter",
+        "description": "MonitorPlotter",
+        "peekOfCode": "class MonitorPlotter(QWidget):\n    buttonClicked = pyqtSignal(str)\n    def __init__(self, parent=None):\n        super().__init__(parent)\n    def initUI(self, menu_type):\n        self.current_menu_type = menu_type  # Simpan menu_type saat ini\n        self.setWindowTitle(f'Menu {menu_type}')\n        self.setStyleSheet(\"background-color: #010020;\")\n        self.clearLayout()\n        main_layout = QVBoxLayout()",
+        "detail": "MonitorPlotter",
         "documentation": {}
     },
     {

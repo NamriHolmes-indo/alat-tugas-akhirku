@@ -69,21 +69,32 @@ class MenuController(QWidget):
                 if isinstance(item, QWidget):
                     item.widget().deleteLater()
                 elif isinstance(item, QSpacerItem):
-                    pass  # Biarkan QSpacerItem tanpa dihapus
+                    pass
                 else:
-                    pass  # Penanganan kasus lain jika ada
+                    pass
 
     def setMenuType(self, menu_type):
         self.initUI(menu_type)
 
     def buttonClickedHandler(self, button_name):
         self.buttonClicked.emit(button_name)
-
-        if button_name == "Mulai Rekam":
-            print(f"Tombol {self.current_menu_type} Rekam diklik.")
-        elif button_name == "Lihat Hasil":
-            print(f"Tombol {self.current_menu_type} Hasil diklik.")
-        elif button_name == "History":
-            print(f"Tombol {self.current_menu_type} History diklik.")
-        elif button_name == "Kembali Home":
-            print(f"Tombol {self.current_menu_type} Home diklik.")
+        
+        if self.current_menu_type == 'EEG':                
+            if button_name == "Mulai Rekam":
+                print("Tombol EEG Rekam diklik.")
+            elif button_name == "Lihat Hasil":
+                print("Tombol EEG Hasil diklik.")
+            elif button_name == "History":
+                print("Tombol EEG History diklik.")
+            elif button_name == "Kembali Home":
+                print("Tombol EEG Home diklik.")
+                
+        elif self.current_menu_type == 'ECG':
+            if button_name == "Mulai Rekam":
+                print("Tombol ECG Rekam diklik.")
+            elif button_name == "Lihat Hasil":
+                print("Tombol ECG Hasil diklik.")
+            elif button_name == "History":
+                print("Tombol ECG History diklik.")
+            elif button_name == "Kembali Home":
+                print("Tombol ECG Home diklik.")
